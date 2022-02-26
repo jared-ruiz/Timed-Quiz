@@ -46,11 +46,16 @@ button {
     padding: 15px;
     border-radius: 10px;
     border: none;
-    width: 150px;
     background-color: lightgreen;
     box-shadow: 0 3px black;
     top: -3px;
     font-size: 45px;
+    position: relative;
+}
+
+#highscore-btn {
+    font-size: 35px;
+    flex-wrap: wrap;
     position: relative;
 }
 
