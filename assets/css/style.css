@@ -3,6 +3,12 @@
     font-family: monospace;
 }
 
+:root {
+    --primary: lightgrey;
+    --secondary: lightgreen;
+    --shadow: black;
+}
+
 body {
     margin: 0;
     display: flex;
@@ -12,14 +18,12 @@ body {
     height: 100vh;
     width: 100vw;
     justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    
+    align-items: center;    
 }
 
 header {
     padding: 10px;
-    background-color: lightsalmon;
+    background-color: var(--primary);
     max-width: 70%;
     margin: 10px;
     border-radius: 15px;
@@ -29,42 +33,51 @@ header {
     text-decoration: underline;
 }
 
-.quiz-container {
-    padding: 10px;
-    background-color: lightgray;
+.quiz-content {
+    padding: 20px 10px;
+    background-color: var(--primary);
     width: 100%;
-    max-width: 80%;
+    max-width: 50%;
     border-radius: 20px;
 }
 
-.quiz-container h2 {
-    font-size: 40px;
-    text-decoration: underline;
+.quiz-question {
+    font-size: 30px;
+    margin-bottom: 25px;
 }
 
 button {
     padding: 15px;
     border-radius: 10px;
     border: none;
-    background-color: lightgreen;
-    box-shadow: 0 3px black;
+    background-color: var(--secondary);
+    box-shadow: 0 3px var(--shadow);
     top: -3px;
     font-size: 45px;
     position: relative;
 }
 
+#question-btn {
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    gap: 10px;
+    margin: 20px;
+}
+
 #highscore-btn {
     font-size: 35px;
     flex-wrap: wrap;
-    position: relative;
+    position: absolute;
+    left: 9px;
+    top: 9px;
 }
 
 button:hover {
-    box-shadow: 0 2px black;
+    box-shadow: 0 2px var(--shadow);
     top: -2px;
 }
 
 button:active {
-    box-shadow: 0 0px black;
+    box-shadow: 0 0px var(--shadow);
     top: 0px;
 }

@@ -9,16 +9,25 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    <button class="btn" id="highscore-btn">Highscores</button>
     <header>
-        <h1 class="page-title">Welcome! Prepare to Take a Timed Quiz!</h1>
+        <button class="btn" id="highscore-btn">Highscores</button>
+        <h1 class="page-title">Welcome! Click Start to Begin Your Quiz!</h1>
     </header>
-    <div class="quiz-container" id="quiz-content">
-        <h2>Click Below To Begin!</h2>
-            <div class="start-btn">
-                <button class="btn" id="start-btn">Start</button>
-            </div>
-    </div> 
+    
+    <main class="quiz-content">
+        <div class="quiz-container">
+            <div class="quiz-question"></div>
+                <div class="btn" id="question-btn">
+                    <button class="btn">1</button>
+                    <button class="btn">2</button>
+                    <button class="btn">3</button>
+                    <button class="btn">4</button>
+                </div>
+                <div class="start-btn">
+                    <button class="btn" id="start-btn">Start</button>
+                </div>
+        </div> 
+    </main>
     
 <footer>
 
