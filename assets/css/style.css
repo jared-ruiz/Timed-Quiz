@@ -41,12 +41,18 @@ header {
     border-radius: 20px;
 }
 
+.quiz-container {
+    width: 100%;
+    /* max-width: 80%; */
+}
+
 .quiz-question {
     font-size: 30px;
     margin-bottom: 25px;
+    word-wrap: break-word;
 }
 
-button {
+.btn {
     padding: 15px;
     border-radius: 10px;
     border: none;
@@ -54,7 +60,7 @@ button {
     box-shadow: 0 3px var(--shadow);
     top: -3px;
     font-size: 45px;
-    position: relative;
+    /* position: relative; */
 }
 
 #question-btn {
@@ -71,6 +77,10 @@ button {
     left: 9px;
     top: 9px;
 }
+
+/* #hide {
+    display: none;
+} */
 
 button:hover {
     box-shadow: 0 2px var(--shadow);
