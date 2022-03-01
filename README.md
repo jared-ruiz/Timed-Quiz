@@ -24,7 +24,7 @@ for the fourth challenge of my bootcamp, I am tasked with creating a timed quiz 
 
 This week has been incredibly difficult for me. A lot of concepts and javascript specfic information. I'm going to do my best to create something that reaches the standards I have set for myself. Wish me luck!
 
-link to deployed website: *placeholdertext*
+link to deployed website: https://jared-ruiz.github.io/Timed-Quiz/
 
 -J
 
