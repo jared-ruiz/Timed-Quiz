@@ -1,5 +1,5 @@
 # Challenge-04
-## Challenge 03 - Timed Quiz
+## Challenge 04 - Timed Quiz
 
 for the fourth challenge of my bootcamp, I am tasked with creating a timed quiz with dynamically changing elements using everything I've learned so far.
 <br>
@@ -20,7 +20,7 @@ for the fourth challenge of my bootcamp, I am tasked with creating a timed quiz 
 <br>
 <br>
 
-<!-- ![alt text](placeholdertext) -->
+![alt text](./assets/images/quiz-screentshot.PNG)
 
 This week has been incredibly difficult for me. A lot of concepts and javascript specfic information. I'm going to do my best to create something that reaches the standards I have set for myself. Wish me luck!
 

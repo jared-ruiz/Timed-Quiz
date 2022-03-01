@@ -2,14 +2,19 @@
 var buttonCounter = 0;
 var currentQuestion = 0;
 var timer = 60;
+var correctCount = 0;
+// var name = window.prompt("Input intials");
 
 //id select the start button
 var startSelect = document.querySelector("#start-btn");
-var highscoreSelect = document.querySelector("#highscore-btn");
+var scoreSelect = document.querySelector("#highscore-btn");
 var timerEl = document.querySelector("#countdown");
-var greetingText = document.querySelector("h1");
+var greetingText = document.querySelector(".page-title");
 var questionText = document.querySelector(".quiz-question");
-var buttonList = document.querySelector(".button-list")
+var buttonList = document.querySelector(".button-list");
+var submitInitials = document.querySelector("#submit-btn");
+var initialsInput = document.querySelector("#initials");
+var pText = document.querySelector("#text");
 
 var questionObj = [
     {
@@ -17,15 +22,43 @@ var questionObj = [
         choices: ["Autumn", "Summer", "Spring", "Winter"],
         answer: "Winter"
     },
-    // {
-    //     question: "What year is it?",
-    //     choices: ["1995", "2007", "2011", "2022"],
-    //     answer: "2022",
-    // }
+    {
+        question: "What year is it?",
+        choices: ["1995", "2022", "2011", "2016"],
+        answer: "2022",
+    },
+    {
+        question: "What color is an orange?",
+        choices: ["Orange", "Purple", "Yellow", "Blue"],
+        answer: "Orange",
+    },
+    {
+        question: "What shape is the sun?",
+        choices: ["Triangle", "Square", "Circle", "Diamond"],
+        answer: "Circle",
+    },
+    {
+        question: "Where do birds spend most of their time?",
+        choices: ["Ground", "Ocean", "Mountains", "Sky"],
+        answer: "Sky",
+    }
 ];
+
+
+var nameUpdate = function(event) {
+    event.preventDefault
+    var name = document.querySelector("input[name='initials']").value;
+
+    localStorage.setItem("Name:", JSON.stringify(name));
+
+    
+}
 
 //quiz begins and calls for the questions and buttons to be made
 var quizStart = function() {
+    document.getElementById("text").style.display = "none";
+    document.getElementById("name-input").style.display = "none";
+    document.getElementById("submit-btn").style.display = "none";
     document.getElementById("start-btn").style.display = "none";//hide start on click
     document.getElementById("highscore-btn").style.display = "none";//hide highscore on click
     document.querySelector("h1").style.display = "none";
@@ -33,22 +66,37 @@ var quizStart = function() {
     createQuestion(); //create buttons and start question
 }
 
+//puts timer on container and updates every time a wrong answer is selected
 var countDown = function() {
-    var currentTimer = timer;
+    timerEl.textContent = timer;
+    var timeInterval = setInterval(function() {
+            timer--;
+            timerEl.textContent = timer;
+            if (timer <= 0) {
+                timer = 0;
+                clearInterval(timeInterval);
+                timerEl.textContent = "0";
+                quizEnd();
+            }
+        }, 1000);
+};
     
-    var timeInterval = setInterval (function() {
-        currentTimer--;
-        timerEl.textContent = currentTimer;
-        if (currentTimer === 0) {
-            clearInterval(timeInterval);
-        } 
-    }, 1000);
-}
-
 var createQuestion = function() {
     
-    //sets the question displayer to the [i] index of questionObj question
-    questionText.innerHTML = `<h2>${questionObj[currentQuestion].question}</h2>`; 
+    //resets container to no elements
+    buttonList.innerHTML = "";
+    questionText.innerHTML = "";
+
+    console.log(currentQuestion);
+    if (currentQuestion === questionObj.length) {
+        timer = 0;
+        countDown();
+        return;
+    }
+    else {
+        //sets the question displayer to the [i] index of questionObj question
+        questionText.innerHTML = `<h2>${questionObj[currentQuestion].question}</h2>`; 
+    }
 
     //creates 4 buttons based off questionObj
     for(var i = 0; i < 4; i++) {
@@ -60,11 +108,6 @@ var createQuestion = function() {
         buttonList.appendChild(createButton);
         buttonCounter++;
     }
-    
-}
-
-var deleteButtons = function () {
- 
 }
 
 var checkAnswer = function(event) {
@@ -79,18 +122,47 @@ var checkAnswer = function(event) {
     console.log(questionObj[currentQuestion]);
 
     if (choice === questionObj[currentQuestion].answer) {
-        console.log("CORRECT");
         currentQuestion++;
-        deleteButtons();
-        // createQuestion();
+        correctCount++;
+        createQuestion();
     }
     else {
-        console.log("WRONG");       
+        currentQuestion++;
+        timer -= 10;
+        createQuestion();
     }
 }
 
+var storeLocal = function() {
+
+    localStorage.setItem("Correct Count:", JSON.stringify(correctCount));
+    // localStorage.setItem("Name:", JSON.stringify(name));
+    return;
+
+}
+
+var quizEnd = function() {
+    buttonList.innerHTML = "";
+    questionText.innerHTML = "Game Over! Reload page to try again!";
+    
+    storeLocal();
+       
+    return;  
+}
+
+var displayScore = function(event) {
+    // document.querySelector(".page-title").style.display = "none";
+    var localName = localStorage.getItem("Name:");
+    var localScore = localStorage.getItem("Correct Count:")
+    pText.innerHTML = "Initials: " + localName + "  Score: " + localScore;
+
+}
 //execute checkAnswer upon click
 buttonList.addEventListener("click", checkAnswer);
+
+scoreSelect.addEventListener("click", displayScore);
+
+submitInitials.addEventListener("click", nameUpdate);
 
 //execute quizStart upon click
 startSelect.addEventListener("click", quizStart);
