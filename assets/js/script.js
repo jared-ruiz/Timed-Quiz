@@ -18,29 +18,29 @@ var pText = document.querySelector("#text");
 
 var questionObj = [
     {
-        question: "What season does it usually snow in?",
-        choices: ["Autumn", "Summer", "Spring", "Winter"],
-        answer: "Winter"
+        question: "What does HTML stand for?",
+        choices: ["Hypertext Max Language", "Handledtext Markup Language", "Honingtext Metric Language", "Hypertext Markup Language"],
+        answer: "Hypertext Markup Language"
     },
     {
-        question: "What year is it?",
-        choices: ["1995", "2022", "2011", "2016"],
-        answer: "2022",
+        question: "What can an array contain in JavaScript?",
+        choices: ["Strings", "Numbers", "Booleans", "All of the Above"],
+        answer: "All of the Above",
     },
     {
-        question: "What color is an orange?",
-        choices: ["Orange", "Purple", "Yellow", "Blue"],
-        answer: "Orange",
+        question: "How do you access an objects property?",
+        choices: [".", "(event)", "function()", "{}"],
+        answer: ".",
     },
     {
-        question: "What shape is the sun?",
-        choices: ["Triangle", "Square", "Circle", "Diamond"],
-        answer: "Circle",
+        question: "What are you supposed to enclose your functions in?",
+        choices: ["[]", ";", "{}", "()"],
+        answer: "{}",
     },
     {
-        question: "Where do birds spend most of their time?",
-        choices: ["Ground", "Ocean", "Mountains", "Sky"],
-        answer: "Sky",
+        question: "What is the most effective way to troubleshoot a JavaScript bug?",
+        choices: ["debugger", "eventListener", "gitBash", "console.log"],
+        answer: "console.log",
     }
 ];
 
