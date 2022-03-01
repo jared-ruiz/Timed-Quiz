@@ -63,7 +63,7 @@ header {
     /* position: relative; */
 }
 
-#question-btn {
+.button-list {
     display: grid;
     grid-template-columns: repeat(1, auto);
     gap: 10px;
@@ -77,10 +77,6 @@ header {
     left: 9px;
     top: 9px;
 }
-
-/* #hide {
-    display: none;
-} */
 
 button:hover {
     box-shadow: 0 2px var(--shadow);
